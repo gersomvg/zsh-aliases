@@ -1,9 +1,12 @@
-alias aliases='code ~/Projects/zsh-aliases/.aliases; \
-  read "?Press enter when finished editing"; \
-  source ~/Projects/zsh-aliases/.aliases; \
-  git -C "/Users/gersom/Projects/zsh-aliases" add .; \
-  git -C "/Users/gersom/Projects/zsh-aliases" commit -m "Automatically committed changes"; \
-  git -C "/Users/gersom/Projects/zsh-aliases" push'
+function aliases {
+  local path=/Users/gersom/Projects/zsh-aliases
+  code $path/.aliases;
+  read "?Press enter when finished editing";
+  source $path/.aliases;
+  git -C $path add .;
+  git -C $path commit -m "Automatically committed changes";
+  git -C $path push;
+}
 
 alias cdns='sudo killall -HUP mDNSResponder'
 alias gitlog='git log --all --decorate --oneline --graph'
