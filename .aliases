@@ -1,4 +1,10 @@
-alias aliases='code ~/.aliases;read "?Press enter when finished editing";source ~/.aliases'
+alias aliases='code ~/Projects/zsh-aliases/.aliases; \
+  read "?Press enter when finished editing"; \
+  source ~/Projects/zsh-aliases.aliases; \
+  git -C "/Users/gersom/Projects/zsh-aliases" add .; \
+  git -C "/Users/gersom/Projects/zsh-aliases" commit -m "Automatically committed changes"; \
+  git -C "/Users/gersom/Projects/zsh-aliases" push'
+
 alias cdns='sudo killall -HUP mDNSResponder'
 alias gitlog='git log --all --decorate --oneline --graph'
 alias adbr='adb reverse tcp:8081 tcp:8081;echo "You react native android app should be connected to the packager now."'
