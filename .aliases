@@ -9,7 +9,6 @@ function aliases() {
     git -C $aliases_root add .
     git -C $aliases_root commit -m "Automatically committed changes"
     git -C $aliases_root push
-    echo
     echo "🆗 Finished!"
   else
     echo
