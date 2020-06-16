@@ -1,11 +1,18 @@
 function aliases {
   local path=/Users/gersom/Projects/zsh-aliases
   code $path/.aliases;
-  read "?Press enter when finished editing";
+  read "?⏳ Press enter when finished editing...";
   source $path/.aliases;
-  git -C $path add .;
-  git -C $path commit -m "Automatically committed changes";
-  git -C $path push;
+  echo "✅ Loaded the changes"
+  if read -q "?🕵️ Are the changes working as expected? (y/n)"; then
+    echo "⤴️ Storing changes in git"
+    git -C $path add .;
+    # git -C $path commit -m "Automatically committed changes";
+    # git -C $path push;
+    echo "🆗 Finished!"
+  else
+    aliases
+  fi
 }
 
 alias cdns='sudo killall -HUP mDNSResponder'
