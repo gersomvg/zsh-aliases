@@ -1,0 +1,15 @@
+alias aliases='code ~/.aliases;read "?Press enter when finished editing";source ~/.aliases'
+alias cdns='sudo killall -HUP mDNSResponder'
+alias gitlog='git log --all --decorate --oneline --graph'
+alias adbr='adb reverse tcp:8081 tcp:8081;echo "You react native android app should be connected to the packager now."'
+alias hosts='code /etc/hosts'
+alias comp='docker-compose'
+
+alias pgstart='pg_ctl -D /usr/local/var/postgres start'
+alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
+function pgcreate {
+  psql -c "create database $1;"
+}
+function pgdrop {
+  psql -c "drop database $1;"
+}
