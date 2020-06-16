@@ -1,16 +1,18 @@
-function aliases {
-  local path=/Users/gersom/Projects/zsh-aliases
-  code $path/.aliases;
-  read "?⏳ Press enter when finished editing...";
-  source $path/.aliases;
+function aliases() {
+  local aliases_root=/Users/gersom/Projects/zsh-aliases
+  code $aliases_root/.aliases
+  read "?⏳ Press enter when finished editing..."
+  source $aliases_root/.aliases
   echo "✅ Loaded the changes"
-  if read -q "?🕵️ Are the changes working as expected? (y/n)"; then
-    echo "⤴️ Storing changes in git"
-    git -C $path add .;
-    # git -C $path commit -m "Automatically committed changes";
-    # git -C $path push;
-    echo "🆗 Finished!"
+  if read -q "?🕵️  Are the changes working as expected? (y/n)"; then
+    echo "\n⤴️ Storing changes in git"
+    git -C $aliases_root add .
+    git -C $aliases_root commit -m "Automatically committed changes"
+    git -C $aliases_root push
+    echo
+    echo "\n🆗 Finished!"
   else
+    echo
     aliases
   fi
 }
