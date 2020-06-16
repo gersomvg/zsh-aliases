@@ -1,6 +1,6 @@
 alias aliases='code ~/Projects/zsh-aliases/.aliases; \
   read "?Press enter when finished editing"; \
-  source ~/Projects/zsh-aliases.aliases; \
+  source ~/Projects/zsh-aliases/.aliases; \
   git -C "/Users/gersom/Projects/zsh-aliases" add .; \
   git -C "/Users/gersom/Projects/zsh-aliases" commit -m "Automatically committed changes"; \
   git -C "/Users/gersom/Projects/zsh-aliases" push'
